@@ -5,3 +5,7 @@ packages/*
 CacheSimulator/packages.config
 CacheSimulator/CacheSimulator.v12.suo
 CacheSimulator/CacheSimulator.javaproj
+.metadata
+.classpath
+.project
+bin
