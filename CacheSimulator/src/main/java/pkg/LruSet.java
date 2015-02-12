@@ -12,13 +12,7 @@ public class LruSet implements OrderedSet {
 	}
 
 	@Override
-	public boolean contains(int tag) {
-		return false;
+	public Integer[] toArray() {
+		return null;
 	}
-
-	@Override
-	public boolean remove(int tag) {
-		return false;
-	}
-
 }

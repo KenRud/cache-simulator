@@ -1,8 +1,12 @@
 package pkg;
 
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 public class Simulation {
 
-	public int run(){
+	public int run() throws IOException{
 
 		DataInputStream input = new DataInputStream(new FileInputStream("TRACE1.DAT"));
 		byte[] bs = new byte[3];
@@ -23,6 +27,7 @@ public class Simulation {
 		}
 
 		input.close();
+		return 0;
 
 	}
 
