@@ -6,7 +6,8 @@ import java.io.IOException;
 
 public class Simulation {
 
-	int misses = 0;
+	private int misses = 0;
+	private int addressAdded = 0;
 
 	public Simulation(int KN, int K, String policy){
 
@@ -22,6 +23,7 @@ public class Simulation {
 		DataInputStream input = new DataInputStream(new FileInputStream("TRACE1.DAT"));
 		byte[] bs = new byte[3];
 		while(input.available() > 0){
+			addressAdded++;
 			int x = input.read(bs);
 
 			 for(byte b:bs){
@@ -44,6 +46,15 @@ public class Simulation {
 		input.close();
 		return misses;
 
+	}
+
+	public int getMisses(){
+
+		return misses;
+	}
+	public int getAdresses(){
+
+		return addressAddeds;
 	}
 
 }
