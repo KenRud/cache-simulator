@@ -9,3 +9,5 @@ CacheSimulator/CacheSimulator.javaproj
 .classpath
 .project
 bin
+*.DAT
+*.dat
