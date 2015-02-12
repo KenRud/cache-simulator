@@ -6,14 +6,18 @@ import java.io.IOException;
 
 public class Simulation {
 
-	public Simulation(int KN, int K, string policy){
+	int misses = 0;
+
+	public Simulation(int KN, int K, String policy){
 
 		int N = KN/K;
 		Cache cache = new Cache(N, K, policy);
+		
 
 	}
 
 	public int run() throws IOException{
+
 
 		DataInputStream input = new DataInputStream(new FileInputStream("TRACE1.DAT"));
 		byte[] bs = new byte[3];
@@ -30,11 +34,15 @@ public class Simulation {
 			System.out.println("_______________________________");
 			System.out.println(address);
 			System.out.println("_______________________________");
+			
+			if(!cache.add(address)){
+				misses++;
+			};
 
 		}
 
 		input.close();
-		return 0;
+		return misses;
 
 	}
 

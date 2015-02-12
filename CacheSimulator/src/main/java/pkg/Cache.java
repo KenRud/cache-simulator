@@ -2,10 +2,20 @@ package pkg;
 
 public class Cache {
 
-	public Cache(int N, int K, string policy){
+	final int BYTES_PER_LINE = 8;
+	FifoSet linesPerSet[N];
 
-		final int NUMBER_OF_LINES = 8;
+	public Cache(int N, int K, String policy){
 
+		if(policy.equals('FIFO')){
+
+			for(int i = 0; i < linesPerSet.length; i++){
+				linesPerSet[i] = new FifoSet(K);
+			}
+
+		}else {
+
+		}
 
 	}
 
