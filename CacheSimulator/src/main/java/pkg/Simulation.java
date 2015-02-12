@@ -6,6 +6,13 @@ import java.io.IOException;
 
 public class Simulation {
 
+	public Simulation(int KN, int K, string policy){
+
+		int N = KN/K;
+		Cache cache = new Cache(N, K, policy);
+
+	}
+
 	public int run() throws IOException{
 
 		DataInputStream input = new DataInputStream(new FileInputStream("TRACE1.DAT"));
