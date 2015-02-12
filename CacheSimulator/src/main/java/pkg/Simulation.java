@@ -8,13 +8,11 @@ public class Simulation {
 
 	private int misses = 0;
 	private int addressAdded = 0;
+	private Cache cache;
 
 	public Simulation(int KN, int K, String policy){
-
 		int N = KN/K;
-		Cache cache = new Cache(N, K, policy);
-		
-
+		cache = new Cache(N, K, policy);
 	}
 
 	public int run() throws IOException{
@@ -53,8 +51,7 @@ public class Simulation {
 		return misses;
 	}
 	public int getAdresses(){
-
-		return addressAddeds;
+		return addressAdded;
 	}
 
 }
