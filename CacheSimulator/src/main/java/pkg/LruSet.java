@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class LruSet implements OrderedSet {
-	private List<Integer> tags = new LinkedList<>();
+	private List<Integer> tags = new LinkedList<Integer>();
 
 	@Override
 	public boolean add(int tag) {

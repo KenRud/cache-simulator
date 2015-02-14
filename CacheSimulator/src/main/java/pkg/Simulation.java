@@ -17,10 +17,10 @@ public class Simulation {
 		cache = new Cache(N, K, policy);
 	}
 
-	public void run() throws IOException{
+	public void run(String fileName) throws IOException{
 
 
-		DataInputStream input = new DataInputStream(new FileInputStream("TRACE1.DAT"));
+		DataInputStream input = new DataInputStream(new FileInputStream(fileName));
 		byte[] bs = new byte[3];
 		while(input.available() > 0){
 			addressAdded++;

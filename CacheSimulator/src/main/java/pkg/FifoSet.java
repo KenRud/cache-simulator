@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class FifoSet implements OrderedSet {
 	private final int numLines;
-	private Queue<Integer> tags = new LinkedList<>();
+	private Queue<Integer> tags = new LinkedList<Integer>();
 
 	public FifoSet(int numLines) {
 		this.numLines = numLines;
