@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import pkg.FifoSet;
+import pkg.LruSet;
 import pkg.OrderedSet;
 
 public class OrderedSetTest {
@@ -16,6 +17,7 @@ public class OrderedSetTest {
 		assertArrayEquals(EMPTY, set.toArray());
 		
 		assertEquals(false, set.add(4));
+		assertEquals(true, set.add(4));
 		assertEquals(false, set.add(9));
 		
 		set.add(7);
@@ -33,6 +35,32 @@ public class OrderedSetTest {
 		
 		assertEquals(false, set.add(54));
 		assertArrayEquals(new Integer[]{7, 1, 134, 23, 54}, set.toArray());
+	}
+	
+	@Test
+	public void lruSet() {
+		OrderedSet set = new LruSet(5);
+		assertArrayEquals(EMPTY, set.toArray());
+		
+		assertEquals(false, set.add(4));
+		assertEquals(true, set.add(4));
+		assertEquals(false, set.add(9));
+		
+		set.add(7);
+		assertArrayEquals(new Integer[]{4, 9, 7}, set.toArray());
+		
+		set.add(1);
+		set.add(134);
+		assertArrayEquals(new Integer[]{4, 9, 7, 1, 134}, set.toArray());
+		
+		set.add(23);
+		assertArrayEquals(new Integer[]{9, 7, 1, 134, 23}, set.toArray());
+		
+		assertEquals(true, set.add(1));
+		assertArrayEquals(new Integer[]{9, 7, 134, 23, 1}, set.toArray());
+		
+		assertEquals(false, set.add(54));
+		assertArrayEquals(new Integer[]{7, 134, 23, 1, 54}, set.toArray());
 	}
 
 }
