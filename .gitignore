@@ -11,3 +11,4 @@ CacheSimulator/CacheSimulator.javaproj
 bin
 *.DAT
 *.dat
+output.txt

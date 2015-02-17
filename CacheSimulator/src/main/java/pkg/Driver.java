@@ -2,7 +2,6 @@ package pkg;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.FileWriter;
 
 public class Driver {
 
@@ -20,7 +19,7 @@ public class Driver {
 
 		while(K <= 4){
 
-			Simulation sim = new Simulation(KN, 2^K, Simulation.FIFO);
+			Simulation sim = new Simulation(KN, (int) Math.pow(2,  K), Simulation.FIFO);
 			sim.run(firstTrace);
 			writer.println(Simulation.FIFO + " KN: " + KN + " K: " + K + "\t");
 			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()));
@@ -32,6 +31,7 @@ public class Driver {
 
 			K++;
 		}
-
+		writer.flush();
+		writer.close();
 	}
 }

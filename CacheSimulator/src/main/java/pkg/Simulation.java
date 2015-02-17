@@ -26,18 +26,11 @@ public class Simulation {
 			addressAdded++;
 			input.read(bs);
 
-//			 for(byte b:bs){
-//			 	System.out.println(b);
-//
-//			 }
-			int address = (bs[2]<<16)&0x00ff0000|
-			 					(bs[1]<<8)&0x0000ff00|
-			 					(bs[0]<<0)&0x000000ff;
-//			System.out.println("_______________________________");
-//			System.out.println(address);
-//			System.out.println("_______________________________");
-			
-			if(!cache.add(address)){
+			int address = (bs[2] << 16) & 0x00ff0000 | 
+					(bs[1] << 8) & 0x0000ff00 | 
+					(bs[0] << 0) & 0x000000ff;
+
+			if (!cache.add(address)) {
 				misses++;
 			};
 
