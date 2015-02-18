@@ -21,8 +21,8 @@ public class Driver {
 
 			Simulation sim = new Simulation(KN, (int) Math.pow(2,  K), Simulation.FIFO);
 			sim.run(firstTrace);
-			writer.println(Simulation.FIFO + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
-			writer.print(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
+			writer.print(Simulation.FIFO + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
+			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
 
 			K++;
 			
@@ -39,8 +39,8 @@ public class Driver {
 
 			Simulation sim = new Simulation(KN, (int) Math.pow(2,  K), Simulation.LRU);
 			sim.run(firstTrace);
-			writer.println(Simulation.LRU + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
-			writer.print(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
+			writer.print(Simulation.LRU + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
+			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
 
 			K++;
 			
@@ -58,8 +58,8 @@ public class Driver {
 
 			Simulation sim = new Simulation(KN, (int) Math.pow(2,  K), Simulation.FIFO);
 			sim.run(secondTrace);
-			writer.println(Simulation.FIFO + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
-			writer.print(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
+			writer.print(Simulation.FIFO + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
+			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
 
 			K++;
 			
@@ -76,8 +76,8 @@ public class Driver {
 
 			Simulation sim = new Simulation(KN, (int) Math.pow(2,  K), Simulation.LRU);
 			sim.run(secondTrace);
-			writer.println(Simulation.LRU + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
-			writer.print(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
+			writer.print(Simulation.LRU + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
+			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
 
 			K++;
 			
