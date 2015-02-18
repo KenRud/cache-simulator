@@ -9,7 +9,7 @@ public class Driver {
 	public final static String secondTrace = "TRACE2.DAT";
 
 	public static void main(String[] args) throws IOException {
-		int K = 2;
+		int K = 1;
 		int KN = 64;
 
 
@@ -24,14 +24,17 @@ public class Driver {
 			writer.println(Simulation.FIFO + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
 			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
 
-			if(KN == 64 && K == 4){
+			K++;
+			
+			if(KN == 64 && K == 5){
 				KN = 256;
 				K = 1;
 			}
-
-			K++;
 		}
-		K = 2;
+		
+		K = 1;
+		KN = 64;
+		
 		while(K <= 4){
 
 			Simulation sim = new Simulation(KN, (int) Math.pow(2,  K), Simulation.LRU);
@@ -39,12 +42,12 @@ public class Driver {
 			writer.println(Simulation.LRU + "\tKN: " + KN + "\tK: " + Math.pow(2,  K) + "\t");
 			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
 
-			if(KN == 64 && K == 4){
+			K++;
+			
+			if(KN == 64 && K == 5){
 				KN = 256;
 				K = 1;
 			}
-
-			K++;
 		}
 
 
@@ -52,5 +55,6 @@ public class Driver {
 
 		writer.flush();
 		writer.close();
+		System.out.println("Simulations complete.");
 	}
 }
