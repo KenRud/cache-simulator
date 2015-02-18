@@ -9,7 +9,7 @@ public class Driver {
 	public final static String secondTrace = "TRACE2.DAT";
 
 	public static void main(String[] args) throws IOException {
-		int K = 1;
+		int K = 2;
 		int KN = 64;
 
 
@@ -21,8 +21,8 @@ public class Driver {
 
 			Simulation sim = new Simulation(KN, (int) Math.pow(2,  K), Simulation.FIFO);
 			sim.run(firstTrace);
-			writer.println(Simulation.FIFO + " KN: " + KN + " K: " + K + "\t");
-			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()));
+			writer.println(Simulation.FIFO + "\tKN: " + KN + "\tK: " + K + "\t");
+			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
 
 			if(KN == 64 && K == 4){
 				KN = 256;
@@ -31,6 +31,25 @@ public class Driver {
 
 			K++;
 		}
+		K = 2;
+		while(K <= 4){
+
+			Simulation sim = new Simulation(KN, (int) Math.pow(2,  K), Simulation.LRU);
+			sim.run(firstTrace);
+			writer.println(Simulation.LRU + "\tKN: " + KN + "\tK: " + K + "\t");
+			writer.println(sim.getMisses() + "\t" + sim.getAdresses() + "\t" + (100f * sim.getMisses() / sim.getAdresses()) + "\n");
+
+			if(KN == 64 && K == 4){
+				KN = 256;
+				K = 1;
+			}
+
+			K++;
+		}
+
+
+
+
 		writer.flush();
 		writer.close();
 	}
